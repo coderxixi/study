@@ -1,0 +1,8 @@
+body{
+  background-color: skyblue;
+}
+.bg-image {
+  display: inline-block;
+  background-image: url('../src/img/99.jpg');
+  background-size: contain;
+}

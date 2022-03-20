@@ -1,0 +1,13 @@
+#! /usr/bin/env node
+//可配置执行命令 commander
+const program=require('commander');
+program
+.command('create <app-name>')
+.description('create a new project')
+.option('-f --force,')
+console.log('zhu-cli');
+// program
+// .version(`zhufeng-cli@${require('../package.json'.version)}`)
+// .usage(`<command> [option]`)
+
+console.log('66666')

@@ -1,0 +1,46 @@
+{
+  "name": "01_learn_webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config wk.config.js",
+    "type-check": "tsc --noEmit",
+    "type-check-watch": "tsc --noEmit --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-transform-arrow-functions": "^7.12.1",
+    "@babel/plugin-transform-block-scoping": "^7.12.12",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "@babel/preset-typescript": "^7.12.13",
+    "autoprefixer": "^10.2.3",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^7.0.0",
+    "css-loader": "^5.0.1",
+    "html-webpack-plugin": "^5.0.0-beta.6",
+    "less": "^4.1.0",
+    "less-loader": "^7.3.0",
+    "postcss": "^8.2.4",
+    "postcss-cli": "^8.3.1",
+    "postcss-loader": "^4.1.0",
+    "postcss-preset-env": "^6.7.0",
+    "style-loader": "^2.0.0",
+    "ts-loader": "^8.0.14",
+    "webpack": "^5.14.0",
+    "webpack-cli": "^4.3.1"
+  },
+  "dependencies": {
+    "@babel/runtime-corejs3": "^7.12.5",
+    "core-js": "^3.8.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "regenerator-runtime": "^0.13.7"
+  }
+}

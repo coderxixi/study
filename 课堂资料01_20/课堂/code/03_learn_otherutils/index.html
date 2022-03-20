@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Promise.resolve()
+      //   .then(() => {
+      //     console.log(0);
+      //     return new Promise(resolve => {
+      //       resolve(4);
+      //     })
+      //   })
+      //   .then((res) => {
+      //     console.log(res);
+      //   });
+
+      // Promise.resolve()
+      //   .then(() => {
+      //     console.log(1);
+      //   })
+      //   .then(() => {
+      //     console.log(2);
+      //   })
+      //   .then(() => {
+      //     console.log(3);
+      //   })
+      //   .then(() => {
+      //     console.log(5);
+      //   })
+      //   .then(() => {
+      //     console.log(6);
+      //   });
+
+      // function a() {}
+      // function a() {}
+      // var a = undefine
+      // var a = undefine
+      // console.log(a);  // ƒ a() {}
+      // a = 11
+      // console.log(a); // 11
+      // console.log(a); // 11
+      // a = 2
+      // console.log(a); // 2
+
+
+
+      // console.log(a);
+      // {
+      //  function a() {}
+      //  var a = undefine
+      //  a = 11
+      // }
+      // 
+      //
+
+      console.log(a);
+      {
+        a = 11;
+        function a() {}
+      }
+      console.log(a);
+
+      console.log(a);
+      {
+        function a() {}
+        a = 2;
+      }
+      console.log(a);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>五子棋小游戏</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<canvas id="canvas" width="600" height="600" onclick="exec(event)"  ></canvas>
+<button onclick="reStart();">重新开始</button>
+<button onclick="back();">悔棋</button>
+
+</body>
+<script type="text/javascript">
+var c=document.getElementById("canvas"); 
+var cxt=c.getContext("2d");
+var data = [];//保存下棋的位置点
+var clickCount = 0;//点击的次数
+var canvasWidth = 600;//画布大小
+var interval = 20;//棋盘间隔
+var isEnd = false;//判断是否结束
+var colorW = '#DAA520';
+var colorH = '#000';
+init();
+function init() { //初始化棋盘
+    for (var i = 0; i < canvasWidth;) {
+        cxt.beginPath();
+        cxt.lineWidth="1";
+        cxt.strokeStyle="#8B4513"; 
+        cxt.moveTo(i,0);
+        cxt.lineTo(i,canvasWidth);
+        cxt.stroke(); 
+        cxt.beginPath();
+        cxt.lineWidth="1";
+        cxt.moveTo(0,i);
+        cxt.lineTo(canvasWidth,i);
+        cxt.stroke(); 
+        i = i+interval;
+    }
+}
+function exec(e) //执行下棋
+{
+	if(isEnd) return;
+
+	var x1=e.clientX;
+	var y1=e.clientY;
+  console.log('e',e.clientX,e.clientY)
+	var newX,newY;
+	for (var i = 0; i < canvasWidth;) {
+		if (x1>=i&&x1<i+interval/2) newX = i;
+		if (x1>=i+interval/2&&x1<i+interval) newX = i+interval;
+		if (y1>=i&&y1<i+interval/2) newY = i;
+		if (y1>=i+interval/2&&y1<i+interval) newY = i+interval;
+		i = i+interval;
+	}//计算落棋位置
+
+	if (!checkDataExists(newX,newY)) {//判断该点是否已经有棋子存在
+		var isTrue = true;
+		if (clickCount%2==0) {
+			cxt.fillStyle=colorW;
+		}else{
+			cxt.fillStyle=colorH;
+			isTrue = false;
+		}
+		cxt.beginPath();
+		cxt.arc(newX,newY,interval/2,0,Math.PI*2,true);
+		cxt.closePath();
+		cxt.fill();
+		data.push({'x':newX,'y':newY,'isTrue':isTrue});//绘制棋子
+		clickCount++;
+		if(isFinish(newX,newY,isTrue)){//判断是否已经结束
+			isEnd = true;
+			if (isTrue) alert('黄棋赢了');
+			else alert('黑棋赢了');
+		}
+	}else{
+		 alert("当前点已经存在");
+	}
+}
+function reStart() {//比赛重新开始
+    cxt.clearRect(0,0,canvasWidth,canvasWidth);
+    init();
+    data = [];
+    clickCount=0;
+    isEnd = false;
+}
+function back() {//执行悔棋
+    cxt.clearRect(0,0,canvasWidth,canvasWidth);
+    init();
+    clickCount--;
+    data.pop();
+    isEnd = false;
+    for (var i = 0; i < clickCount; i++) {
+        cxt.beginPath();
+        cxt.fillStyle = i%2==0 ? colorW:colorH;
+        cxt.arc(data[i].x,data[i].y,10,0,Math.PI*2,true);
+        cxt.closePath();
+        cxt.fill();
+    }
+}
+
+function checkDataExists(x,y,isTrue){//判断当前落棋点是否已经存在棋子
+    for (var i = 0; i < data.length; i++) {
+        if (data[i].x ==x && data[i].y == y && (typeof(isTrue) == "undefined" || data[i].isTrue == isTrue))  return true;
+    }
+    return false;
+}
+function isFinish(x1,y1,isTrue) {//判断是否结束棋局
+    x2 = x3 = x4 = x5 = x1;
+    y2 = y3 = y4 = y5 = y1;
+
+    x2 = x1>=5*interval ? x1-5*interval : 0;
+    lineCount = 0;
+    for (var i = 0; i < 10; i++) {
+        tempx = x2+interval*i;
+        if (checkDataExists(tempx,y2,isTrue)) {
+            lineCount++;
+            if (lineCount==5) break;
+        }else  lineCount=0;
+    }
+    if (lineCount>=5)   return true;
+
+    if (y1>=5*interval)   y3 = y1-5*interval;
+    else  y3=0;
+    lineCount = 0;
+    for (var i = 0; i < 10; i++) {
+        tempy = y3+interval*i;
+        if (checkDataExists(x3,tempy,isTrue)) {
+            lineCount++;
+            if (lineCount==5)  break;
+        }else lineCount=0;
+    }
+    if (lineCount>=5) return true;
+
+    x4 = x1-5*interval;
+    y4 = y1-5*interval;
+    lineCount = 0;
+    for (var i = 0; i < 10; i++) {
+        tempy = y4+interval*i;
+        tempx = x4+interval*i;
+        if (checkDataExists(tempx,tempy,isTrue)) {
+            lineCount++;
+            if (lineCount==5) break;
+        }else  lineCount=0;
+    }
+    if (lineCount>=5) return true;
+
+    x5 = x1-5*interval;
+    y5 = y1+5*interval;
+    lineCount = 0;
+    for (var i = 0; i < 10; i++) {
+        tempy = y5-interval*i;
+        tempx = x5+interval*i;
+        if (checkDataExists(tempx,tempy,isTrue)) {
+            lineCount++;
+            if (lineCount==5)  break;
+        }else  lineCount=0;
+    }
+    if (lineCount>=5) return true;
+}
+</script>
+</html>

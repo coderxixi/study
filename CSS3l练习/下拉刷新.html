@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html,body{
+      height: 100%;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+    .van-pull-refresh{
+      overflow: hidden;
+      user-select: none;
+      height: calc(100vh - 50px);
+     
+    }
+    .van-pull-refresh  .van-pull-refresh__track .van-pull-header{
+      position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    color: #969799;
+    font-size: 14px;
+    line-height:50px;
+    text-align: center;
+    transform: translateY(-100%);
+    }
+    .van-pull-refresh .van-pull-refresh__track{
+      background-color: skyblue;
+    position: relative;
+    height: 100%;
+    transition-property: transform;
+    }
+  </style>
+</head>
+<body>
+    <div class="van-pull-refresh">
+     
+      <div class="van-pull-refresh__track" id="pulltrack">
+        <div class="van-pull-header">下拉刷新</div>
+        <dvi class="van-conet">
+          <ul>
+            <li>66</li>
+            <li>66</li>
+            <li>66</li>
+
+            <li>66</li>
+            <li>66</li>
+            <li>66</li>
+            <li>66</li>
+            <li>66</li>
+            <li>66</li>
+
+            <li>66</li> <li>66</li>
+            <li>66</li>
+            <li>66</li>
+
+             <li>66</li> <li>66</li>
+             <li>66</li>
+             <li>66</li>
+             <li>66</li>
+             <li>66</li>
+             <li>66</li>
+             <li>66</li>
+             <li>66</li>
+             <li>66</li>
+
+              <li>66</li> <li>66</li>
+              <li>66</li>
+              <li>66</li>
+              <li>66</li>
+              <li>66</li>
+              <li>66</li>
+              <li>66</li>
+              <li>66</li>
+              <li>66</li>
+              <li>66</li>
+              <li>66</li>
+              <li>66</li>
+              <li>66</li>
+              
+          </ul>
+        </dvi>
+      </div>
+    </div>
+    <script>
+      let pulltrack=document.getElementById('pulltrack')
+      let text=document.getElementsByClassName('van-pull-header')[0]
+      pulltrack.ontouchstart=function(e){
+        console.log('下拉刷新')
+      }
+      // pulltrack.ontouchmove
+      let coun=10;
+      pulltrack.addEventListener('touchmove',function(e){
+        text.innerHTML='下拉刷新'
+        pulltrack.style.transitionDuration=`300ms`;
+        if(coun>=80){
+          text.innerHTML='松开即可刷新'
+        }
+        pulltrack.style.transform=`translate3d(0,${coun++}px, 0)`
+      console.log('手指移动')
+      })
+      pulltrack.addEventListener('touchend',function(e){
+        text.innerHTML='加载中...'
+        pulltrack.style.transform=`translate3d(0,50px, 0)`
+        setTimeout(()=>{
+          pulltrack.style.transitionDuration=`300ms`,
+          pulltrack.style.transform=`translate3d(0,0px, 0)`
+        },1500)
+       
+       
+      console.log('手指移动')
+      })
+    </script>
+</body>
+</html>

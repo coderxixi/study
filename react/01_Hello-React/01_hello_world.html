@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2 class="title">Hello React</h2>
+  <button class="btn">改变文本</button>
+  <script>
+    //1.定义数据
+    let message="Helow World"
+    //将数据显示在H2中
+const titleEl=document.getElementsByClassName('title')[0];
+titleEl.innerHTML=message;
+const btnEl=document.getElementsByClassName('btn')[0]
+btnEl.addEventListener('click',e=>{
+  message="Hello React";
+  titleEl.innerHTML=message;
+})
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body> 
+  <canvas id="canvas" width="300" height="300"></canvas>
+   <script>
+     let canvas=document.getElementById('canvas');
+     let ctx=canvas.getContext('2d');
+     //创建一条路径
+     ctx.beginPath()
+    //从那个位置开始绘制线条
+     ctx.moveTo(75, 50);
+    ctx.lineTo(100, 75);
+    ctx.lineTo(100, 25);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // 绘制
+    ctx.moveTo(110, 75);
+    ctx.arc(75, 75, 35, 0, Math.PI, false);   // 口(顺时针)
+    ctx.moveTo(65, 65);
+    ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // 左眼
+    ctx.moveTo(95, 65);
+    ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // 右眼
+    ctx.stroke();
+    //绘制边框三角形
+    //创建一条路径
+    ctx.beginPath();
+    ctx.moveTo(60,60);
+    ctx.lineTo(200,250);
+    ctx.lineTo(250,40);
+    //关闭路径
+    ctx.closePath();
+    ctx.stroke()
+    
+   </script>
+</body>
+</html>

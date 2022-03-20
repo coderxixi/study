@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html{
+      font-size: calc(100vw / 20)+'px';
+    }
+    html,body{
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0,0,0,.3);
+      margin: 0;
+      padding: 0;
+    }
+    .content{
+    position: fixed;
+    right: .5rem;
+    bottom: 4rem;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    background-color: rgba(0,0,0,.3);
+    border-radius: 1rem;
+    text-align: center;
+    color: #fff;
+    transition: all .5s;
+    /* overflow: hidden;     */
+    /* display: flex; */
+    }
+    .content .btn{
+			background-image: url(https://gdqd.10010.com:18090/netplanfiletg/dist/static/images/icon-lr.png);
+			background-position: 50%;
+			background-repeat: no-repeat;
+			background-size: 1.2rem 1.2rem;
+      width: 2rem;
+			height: 2rem;
+			transition: .5s;
+    }
+    .content.selected{
+      width: 10.2rem;
+			background-color: rgba(163, 157, 157, 0.3);
+		}
+  
+   .selected >.btn{
+     	transform: rotate(-180deg);
+    	background-color: hsla(0,0%,100%,.3);
+     	border-radius: 1rem; 
+   }
+   .item {
+		  display: flex;
+			align-items: center;
+			font-size: .6rem;
+			margin: .5rem 0;
+			padding-left: 10px;
+			padding-right: 10px;
+			line-height: 1rem;
+			text-align: center;
+			border-right: 1px solid #ddd;
+			box-sizing: border-box;
+}
+.content>div{
+  float: left;
+}
+  </style>
+</head>
+<body>
+     <div class="content">
+        <div class="btn"></div>
+        <div class="item">二维码</div>
+        <div class="item">查订单</div>
+     </div>
+     <script>
+
+       let btn=document.getElementsByClassName('btn')[0];
+       let ctn=document.getElementsByClassName('content')[0]
+       let flag=false;
+       btn.onclick=function(e){
+        ctn.classList.toggle('selected');
+        
+       
+       
+       
+       }
+     </script>
+</body>
+</html>

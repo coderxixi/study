@@ -1,0 +1,2 @@
+(self.webpackChunkwebpack_devserver=self.webpackChunkwebpack_devserver||[]).push([[761],{761:(e,c,a)=>{"use strict";function abc(){return"abc"}a.r(c),a.d(c,{abc:()=>abc});var d=document.createElement("div");d.className="title",document.body.appendChild(d);var t=document.createElement("h2");document.body.appendChild(t)}}]);
+//# sourceMappingURL=761.50f6fa.chunk.js.map

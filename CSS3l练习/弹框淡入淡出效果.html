@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .popup{
+      position: fixed;
+      height: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,.4);
+      opacity: 0;
+      visibility: hidden;
+      overflow: hidden;
+      transition: opacity .2s, visibility .2s;
+    }
+    .content{
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      background-color: white;
+      border-radius: 14px;
+      text-align: center;
+      line-height: 240px;
+      opacity: 0;
+      box-shadow: 0 0 12px red;
+      transition: opacity .8s;
+    }
+    .popup.active{
+      /* transition-property: opacity; */
+      opacity: 1;
+      visibility: visible;
+    }
+    .active > .content{
+      transition: all .5s;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+    <div class="popup" id="popup">
+      <div class="content">淡入淡出效果</div>
+    </div>
+    <button id="button">点击出现扶残</button>
+    <script>
+      button.onclick = function () {
+   popup.classList.add('active');
+};
+popup.onclick = function () {
+   this.classList.remove('active');
+};
+    </script>
+</body>
+</html>

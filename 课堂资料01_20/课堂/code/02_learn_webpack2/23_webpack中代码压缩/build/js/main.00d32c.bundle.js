@@ -1,0 +1,2 @@
+(self.webpackChunkwebpack_devserver=self.webpackChunkwebpack_devserver||[]).push([[179],{449:(e,n,c)=>{"use strict";c.e(761).then(c.bind(c,761)).then((function(e){})),console.log(function sum(e,n){return e+n}(20,30)),console.log(window.abc)}},0,[[449,666]]]);
+//# sourceMappingURL=main.00d32c.bundle.js.map

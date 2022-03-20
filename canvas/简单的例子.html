@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="620" height="450"></canvas>
+    <script>
+      let cnavas=document.getElementById('canvas');
+      let ctx=cnavas.getContext('2d');
+      //填充颜色
+      ctx.fillstyle='rgb(200,0,0)'
+      //绘制矩形
+      ctx.fillRect(10,10,50,50);
+      //绘制第二个矩形
+      ctx.fillstyle='rgba(0,0,200,.5)'
+      //绘制矩形
+      ctx.fillRect(30,30,55,50);
+      //绘制一个边框矩形
+      ctx.strokeRect(20,200,200,200)
+      //清除矩形
+      // ctx.clearRect(0,0,620,450)
+    </script>
+</body>
+</html>

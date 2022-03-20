@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+     function draw() {
+    var ctx = document.getElementById('canvas').getContext('2d');
+    var img = new Image();
+    img.onload = function(){
+      ctx.drawImage(img,0,0);
+      ctx.beginPath();
+      ctx.moveTo(30,96);
+      ctx.lineTo(70,66);
+      ctx.lineTo(103,76);
+      ctx.lineTo(170,15);
+      ctx.stroke();
+    }
+    img.src = 'https://mdn.mozillademos.org/files/5395/backdrop.png';
+  }
+  draw()
+  </script>
+</body>
+</html>

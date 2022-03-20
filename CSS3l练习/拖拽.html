@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .tuoz{
+      width: 250px;
+      height: 240px;
+      font-size: 30px;
+    line-height: 240px;
+      text-align: center;
+      border: 1px solid skyblue;
+    }
+  </style>
+</head>
+<body>
+  <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div class="tuoz" draggable="true">拖拽</div>
+    <script>
+      let t=document.getElementsByClassName('.tuoz')[0];
+     function dragstartFn(e){
+           console.log(e)
+     }
+     function drag(ev)
+{
+	ev.dataTransfer.setData("Text",ev.target.id);
+}
+
+function drop(ev)
+{
+	ev.preventDefault();
+	var data=ev.dataTransfer.getData("Text");
+	ev.target.appendChild(document.getElementById(data));
+}
+      window.addEventListener('dragstart',dragstartFn)
+    </script>
+</body>
+</html>

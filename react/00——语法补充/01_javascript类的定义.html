@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+   <script>
+     //es5类的定义
+     function Perosn(name,age){
+       this.name=name;
+       this.age=age;
+     }
+     Perosn.prototype.say=function(){
+       alert(this.name)
+     }
+     let person=new Perosn('刘嘻嘻',18)
+     person.say()
+     //es6通过class创建类
+     class Per{
+       constructor(name,age){
+          this.name=name;
+          this.age=age
+       }
+       //定义方法
+       running(){
+         console.log(this.name)
+       }
+     }
+     let pr=new Per('xixi',18);
+    let fn= pr.running;
+     let obj={
+       name:'刘圣书'
+     }
+     fn.call(obj)
+
+   </script>
+</body>
+</html>

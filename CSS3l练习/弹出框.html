@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .popup {
+    position: fixed;
+    left: 0; right: 0; bottom: 0; top: 0;
+    z-index: 19;
+    background: rgba(0,0,0,.5);
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity .2s, visibility .2s;
+    visibility: hidden;
+    backdrop-filter: blur(5px);
+}
+.content {
+  
+    height: 100%;
+    width: 350px;
+    position: absolute;
+    /* left: 0;  */
+    right: 0; 
+    bottom:0;
+    background-color: #fff;
+    transform: translateX(100%);
+    /*  从右侧滑出transform: translateX(100%); */
+      /* transform: translateY(100%); */
+    
+    transition: transform .2s;
+}
+.popup.active {
+    transition-property: opacity;
+    opacity: 1;
+    visibility: visible;
+}
+.active >.content {
+    transform: translateX(0%);
+    /* transform: translateY(0%) */
+}
+     
+  </style>
+</head>
+<body>
+     <div class="popup" id='popup'>
+       <div class="content">666666666666</div>
+     </div>
+  <button id="button">点击出现底部弹框</button>
+     <script>
+       button.onclick = function () {
+    popup.classList.add('active');
+};
+popup.onclick = function () {
+    this.classList.remove('active');
+};
+     </script>
+</body>
+</html>

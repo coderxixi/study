@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      padding:0;
+      background-color: #263238;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .main{
+      width: 220px;
+      height: 40px;
+      background-color: #b4a078;
+      display: flex;
+      justify-content: center;
+      border-radius: 4px;
+      /* box-shadow:0 0 .5em #b4a078; */
+      animation: shake-baidu 2s ease 0s infinite;
+      animation-play-state: paused;
+    }
+    .main:hover,
+    .main > span:hover {
+    animation-play-state: running;
+  }
+    .main >span {
+      color:white;
+      text-align: center;
+      line-height: 40px;
+    }
+    @keyframes shake-baidu{
+    from    { transform: rotate(0deg); }
+    4%      { transform: rotate(5deg); }
+    12.5%   { transform: rotate(-5deg); }
+    21%     { transform: rotate(5deg); }
+    29%     { transform: rotate(-5deg); }
+    37.5%   { transform: rotate(5deg); }
+    46%     { transform: rotate(-5deg); }
+    50%,to  { transform: rotate(0deg); }
+    }
+  </style>
+</head>
+<body>
+  <main class="main">
+    <span>You-need-to-know-css!</span>
+  </main>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .content{
+     width: 250px;
+    }
+    .content .item1{
+        width: 100%;
+        height: 20px;
+        border: 1px solid red;
+    }
+    .content .item2{
+      width: 100%;
+      height: 250px;
+      border: 1px solid skyblue;
+      opacity: 0;
+      
+      transform: translateY(8px);
+      transition: 1s;
+    }
+    .content .item2.active{
+      opacity: 1;
+      transform: translateY(2px);
+    }
+  
+  </style>
+</head>
+<body>
+  <div class="content" id="cn">
+    <div class="item1" ></div>
+    <div class="item2">666</div>
+  </div>
+  <script>
+   let btn=document.getElementsByClassName('item1')[0];
+   let popup=document.getElementsByClassName('item2')[0];
+   btn.addEventListener("click", () => {
+  if (!popup.classList.contains("active")) {
+    popup.style.display = "block";
+    popup.scrollWidth;
+    popup.classList.add("active");
+  } else {
+    popup.classList.remove("active");
+    popup.addEventListener('transitionrun',()=>{
+      console.log('过渡开始')
+    })
+    popup.addEventListener('transitionend', () => {
+        popup.style.display = "none";
+        console.log('过渡完成')
+    }, { once: true })
+
+  }
+});
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :root{
+      --color:red;
+      --font:100px;
+    }
+    .op{
+      width:var(--font);
+      height: var(--font);
+      background-color: var(--color);
+      
+    }
+    .op::after{
+      content: attr(data-name);
+    }
+  </style>
+</head>
+<body>
+  <div class="op" data-name="刘圣书"></div>
+</body>
+</html>
