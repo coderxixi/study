@@ -1,17 +1,17 @@
-.contentbox{
-  .picker-popup{
+.contentbox {
+  .picker-popup {
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0,0, .3);
+    background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(5px);
     top: 0;
     left: 0;
     opacity: 0;
     visibility: hidden;
-    transition: all .3s;
+    transition: all 0.3s;
   }
-  .picker-conter{
+  .picker-conter {
     width: 100%;
     // height: 320px;
     min-height: 300px;
@@ -23,43 +23,38 @@
     bottom: 0;
     left: 0;
     transform: translateY(100%);
-    transition: all .3s;
-    .contern{
+    transition: all 0.3s;
+    .contern {
       padding: 20px;
-      .contern-top{
+      .contern-top {
         display: flex;
-         div{
-            width: 50%;
-            &:nth-child(2){
-              text-align: end;
-              color: #1aad19;
-            }
-         }
-        
+        div {
+          width: 50%;
+          &:nth-child(2) {
+            text-align: end;
+            color: #1aad19;
+          }
+        }
       }
-      .contentitem-box{
+      .contentitem-box {
         margin-top: 15px;
         height: 200px;
         overflow: hidden;
-        .contentitem-box-item{
+        .contentitem-box-item {
           text-align: center;
           padding: 10px 0;
         }
       }
     }
   }
-  
-  .active{
+
+  .active {
     opacity: 1;
     visibility: visible;
-    transition: all .3s;
-    & + .picker-conter{
+    transition: all 0.3s;
+    & + .picker-conter {
       transform: translateY(0);
-      transition: all .3s;
+      transition: all 0.3s;
     }
   }
 }
-
-
-
-

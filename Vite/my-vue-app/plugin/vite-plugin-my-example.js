@@ -1,14 +1,14 @@
-export default function myExample(){
+export default function myExample() {
   return {
-    name:'my-example',
-    option(opts){
+    name: 'my-example',
+    option(opts) {
       console.log('opts')
     },
-    buildStart(){
+    buildStart() {
       console.log('buildStart')
     },
-    config(config){
-        console.log(config)
+    config(config) {
+      console.log(config)
     }
   }
 }
