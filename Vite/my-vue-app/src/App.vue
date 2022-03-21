@@ -1,45 +1,43 @@
 <template>
   <div>
-    <Index />
-    <Steps>
-      <Step>
-        <h3>城市物流单</h3>
-        <p>2022-03-11 14:28</p>
-      </Step>
-    </Steps>
-    <Picker :isactive="isactive" @closeFn="closefn"> 6666 </Picker>
-    <button @click="btnClick">点击显示</button>
+    <el-row class="mb-4">
+    <el-button plain>Plain</el-button>
+    <el-button type="primary" plain>Primary</el-button>
+    <el-button type="success" plain>Success</el-button>
+    <el-button type="info" plain>Info</el-button>
+    <el-button type="warning" plain>Warning</el-button>
+    <el-button type="danger" plain>Danger</el-button>
+    </el-row>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue'
-import Index from '@/Home/index.jsx'
-import Picker from 'cp/Picker/Picker.jsx'
-import Steps from 'cp/steps/steps.jsx'
-import Step from 'cp/step/step.jsx'
+
+// import { ref } from 'vue'
+// import Index from '@/Home/index.jsx'
+// import Picker from 'cp/Picker/Picker.jsx'
+// import Steps from 'cp/steps/steps.jsx'
+// import Step from 'cp/step/step.jsx'
+
 export default {
   components: {
-    Index,
-    Picker,
-    Steps,
-    Step
+  
   },
   setup() {
-    const isactive = ref(false)
-    const btnClick = () => {
-      isactive.value = !isactive.value
-      console.log('6666')
-    }
-    const closefn = (arg) => {
-      isactive.value = arg
-      console.log('arg', arg)
-    }
-    return {
-      btnClick,
-      closefn,
-      isactive
-    }
+    // const isactive = ref(false)
+    // const btnClick = () => {
+    //   isactive.value = !isactive.value
+    //   console.log('6666')
+    // }
+    // const closefn = (arg) => {
+    //   isactive.value = arg
+    //   console.log('arg', arg)
+    // }
+    // return {
+    //   btnClick,
+    //   closefn,
+    //   isactive
+    // }
   }
 }
 </script>
