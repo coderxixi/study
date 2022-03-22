@@ -6,3 +6,5 @@ createApp(App)
 .use(globalRegister)
 .use(router)
 .mount('#app')
+
+
