@@ -1,6 +1,7 @@
 <template>
-  <div>
-     我是登录页面
+  <div class="login">
+    66666
+    <login-panel />
   </div>
 </template>
 
@@ -16,6 +17,13 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-
+<style lang='less' scoped>
+.login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: url('../../assets/img/login-bg.svg');
+}
 </style>

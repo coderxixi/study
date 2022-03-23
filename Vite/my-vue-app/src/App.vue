@@ -1,15 +1,5 @@
 <template>
-  <div>
-    <!-- <router-view></router-view> -->
-    <el-row class="mb-4">
-    <el-button plain>Plain</el-button>
-    <el-button type="primary" plain>Primary</el-button>
-    <el-button type="success" plain>Success</el-button>
-    <el-button type="info" plain>Info</el-button>
-    <el-button type="warning" plain>Warning</el-button>
-    <el-button type="danger" plain>Danger</el-button>
-    </el-row>
-  </div>
+    <Login/>
 </template>
 
 <script>
@@ -19,10 +9,10 @@
 // import Picker from 'cp/Picker/Picker.jsx'
 // import Steps from 'cp/steps/steps.jsx'
 // import Step from 'cp/step/step.jsx'
-
+import Login from './page/Login/Login.vue'
 export default {
   components: {
-  
+  Login
   },
   setup() {
     // const isactive = ref(false)
@@ -44,12 +34,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-h3 {
-  margin: 0;
-  padding: 0;
-}
-p {
-  margin: 0;
-  padding: 0;
-}
+
 </style>
