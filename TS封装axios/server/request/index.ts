@@ -5,8 +5,10 @@ import { XixirequestHook, Xixiconfig } from './type'
 class Xixirequest {
   instance: AxiosInstance
   interceptors: XixirequestHook
+  showLoding?: boolean
   constructor(config: Xixiconfig) {
     this.instance = axios.create(config)
+    this.showLoding = config.shouLoding ?? true
     this.interceptors = config.interceptors
     this.instance.interceptors.request.use(
       this.interceptors.requestInterceptors,
@@ -19,36 +21,45 @@ class Xixirequest {
     //添加所有实例的都有的拦截器
     this.instance.interceptors.request.use((config) => {
       console.log('所有的实例都有的请求拦截器:请求拦截');
-      
-    },(err)=>{
+
+    }, (err) => {
       console.log('所有的实例都有的请求拦截器:请求拦截失败');
     })
     this.instance.interceptors.response.use((res) => {
-      
+
       console.log('所有的实例都有的响应拦截器:响应成功拦截');
       return res.data
-    },(err)=>{
+    }, (err) => {
       console.log('所有的实例都有的拦截器:响应失败拦截');
     })
   }
-  request(config: Xixiconfig):void{
-    if(config.interceptors?.requestInterceptors){
-      config=config.interceptors.requestInterceptors(config)
-    }
-    this.instance.request(config).then((res) => {
-      if(config.interceptors?.responseInterceptor){
-        config=config.interceptors.responseInterceptor(res)
+  request<T>(config: Xixiconfig): Promise<T> {
+    return new Promise((resolve, reject) => {
+      if (config.interceptors?.requestInterceptors) {
+        config = config.interceptors.requestInterceptors(config)
       }
-      console.log(res)
+      this.instance.request<any, T>(config).then((res) => {
+        if (config.interceptors?.responseInterceptor) {
+          // res=config.interceptors.responseInterceptor(res)
+        }
+        resolve(res)
+        console.log(res)
+      })
     })
-  }
-  post() {
 
   }
-  get() {
+  post<T>(config: Xixiconfig): Promise<T> {
+    return this.request<T>({ ...config, method: 'POST' })
+  }
+  get<T>(config: Xixiconfig): Promise<T> {
+    return this.request<T>({ ...config, method: 'GET' })
+  }
+  delete<T>(config: Xixiconfig): Promise<T> {
+    return this.request<T>({ ...config, method: 'DELETE' })
 
   }
-  put() {
+  patch<T>(config: Xixiconfig): Promise<T> {
+    return this.request<T>({ ...config, method: 'PATCH' })
 
   }
 }
