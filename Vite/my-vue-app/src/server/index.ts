@@ -1,8 +1,8 @@
 import Xirequest from './request';
 
 const XirequestApi=new Xirequest({
-    baseURL:"http://",
-    timeout:10000,
+    baseURL:"http://152.136.185.210:5000",
+    timeout:3000,
     interceptors:{
       requestInterceptors:(config)=>{
         //想做的一些操作

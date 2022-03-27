@@ -1,14 +1,17 @@
 <template>
   <div class="login">
-    66666
-    <login-panel />
+   <LoginPanel/>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-
+import LoginPanel from '../Login/cpn/login-panel.vue';
 export default defineComponent({
+  components:{
+    LoginPanel
+   },
+  name:'Login',
   setup () {
     
 

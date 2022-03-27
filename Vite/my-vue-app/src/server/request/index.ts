@@ -4,18 +4,18 @@ import { XirequestHook, XirequestConfig } from './type'
 //创建一个类封装请求
 class Xirequest {
   instance: AxiosInstance
-  interceptors: XirequestHook
+  interceptors?: XirequestHook
   constructor(config: XirequestConfig) {
     this.instance = axios.create(config);
     this.interceptors = config.interceptors
     //单个实例添加拦截器
     this.instance.interceptors.request.use(
-      this.interceptors.requestInterceptors,
-      this.interceptors.requestInterceptorCatch
+      this.interceptors?.requestInterceptors,
+      this.interceptors?.requestInterceptorCatch
     );
     this.instance.interceptors.response.use(
-      this.interceptors.responseInterceptor,
-      this.interceptors.responseInterceptorCatch
+      this.interceptors?.responseInterceptor,
+      this.interceptors?.responseInterceptorCatch
     );
     //添加所有实例的都有的拦截器
     this.instance.interceptors.request.use((config) => {
