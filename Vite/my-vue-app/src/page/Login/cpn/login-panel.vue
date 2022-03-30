@@ -30,6 +30,7 @@
 import { defineComponent, ref } from 'vue'
 import LoginPhone from './login-phone.vue'
 import LoginAccount from './login-account.vue'
+
 export default defineComponent({
   components: {
     LoginAccount,
@@ -41,14 +42,11 @@ export default defineComponent({
     const accountRef = ref<InstanceType<typeof LoginAccount>>()
     const phoneRef = ref<InstanceType<typeof LoginPhone>>()
     const currentTab = ref('account')
+    
 
     // 2.定义方法
     const handleLoginClick = () => {
-      if (currentTab.value === 'account') {
-        // accountRef.value?.loginAction(isKeepPassword.value)
-      } else {
-        console.log('phoneRef调用loginAction')
-      }
+      accountRef.value?.loginAction(isKeepPassword.value)
     }
 
     return {

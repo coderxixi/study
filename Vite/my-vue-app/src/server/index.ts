@@ -1,29 +1,31 @@
-import Xirequest from './request';
+// service统一出口
+import HYRequest from './request'
+import { BASE_URL, TIME_OUT } from './request/config'
 
-const XirequestApi=new Xirequest({
-    baseURL:"http://152.136.185.210:5000",
-    timeout:3000,
-    interceptors:{
-      requestInterceptors:(config)=>{
-        //想做的一些操作
-        //1.给请求添加token
-        //2.给请求添加其他参数
-        //3.loading的动画
-        console.log('请求成功的拦截器')
-        return config;
-      },
-      requestInterceptorCatch:(err)=>{
-        console.log('请求失败的拦截器')
-        return err;
-      },
-      responseInterceptor:(res)=>{
-        console.log('响应成功的拦截器')
-            return res
-      },
-      responseInterceptorCatch:(err)=>{
-        console.log('响应失败的拦截器')
-        return err
+import LocalCache from '../utils/caceh'
+
+const hyRequest = new HYRequest({
+  baseURL: BASE_URL,
+  timeout: TIME_OUT,
+  interceptors: {
+    requestInterceptor: (config) => {
+      // 携带token的拦截
+      const token = LocalCache.getCache('token')
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`
       }
+      return config
+    },
+    requestInterceptorCatch: (err) => {
+      return err
+    },
+    responseInterceptor: (res) => {
+      return res
+    },
+    responseInterceptorCatch: (err) => {
+      return err
     }
-});
-export default XirequestApi;
+  }
+})
+
+export default hyRequest

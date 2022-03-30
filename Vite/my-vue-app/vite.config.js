@@ -11,19 +11,30 @@ export default defineConfig({
         entry: 'src/main.ts'
     }
 },
-  plugins: [vue(),vueJsx({}), AutoImport({
+  plugins: [
+    vue(),
+    vueJsx({}),
+  AutoImport({
     resolvers: [ElementPlusResolver()],
   }),
   Components({
     resolvers: [ElementPlusResolver()],
   }),],
   server: {
-    open: true
+    open: true,
+    proxy: {
+      '^/api': {
+        target: 'http://152.136.185.210:4000',
+        rewrite: (path) => path.replace(/^\/api/, ''),
+        changeOrigin: true
+      }
+    }
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src/page'),
-      cp: path.resolve(__dirname, 'src/components')
+      '@': path.resolve(__dirname, 'src'),
+      'cp':path.resolve(__dirname, 'src/components'),
+     '@utils': path.resolve(__dirname, 'src/utils'),
     }
   },
   build: {
@@ -39,16 +50,6 @@ export default defineConfig({
       }
     }
   },
-  devServer: {
-    proxy: {
-      '^/api': {
-        target: 'http://152.136.185.210:4000',
-        pathRewrite: {
-          '^/api': ''
-        },
-        changeOrigin: true
-      }
-    }
-  }
+  
   
 })

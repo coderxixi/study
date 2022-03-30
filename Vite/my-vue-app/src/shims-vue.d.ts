@@ -5,3 +5,4 @@ declare module '*.vue' {
   export default component
 }
 declare let $store: any
+declare let LocalCache:any
