@@ -44,13 +44,24 @@
 </template>
 
 <script lang="ts">
-import { defineComponent,computed} from 'vue'
+import { defineComponent,computed,ref} from 'vue'
 import {useStore} from '../../../store/index'
+import { useRouter, useRoute} from 'vue-router'
 export default defineComponent({
+   props: {
+    collapse: {
+      type: Boolean,
+      default: false
+    }
+    },
   setup () {
+    const router = useRouter()
+    const route = useRoute()
     const store=useStore()
+    // const menu = pathMapToMenu(userMenus.value, currentPath)
+    // const defaultValue = ref(menu.id + '')
     const userMenus=computed(()=>{
-      console.log(store.userMenus)
+      console.log('store.userMenus',store.userMenus)
       return store.userMenus
     })
     const handleOpen=()=>{
@@ -59,15 +70,20 @@ export default defineComponent({
    const handleClose=()=>{
    
    }
-   const handleMenuItemClick=(subitem:string)=>{
+   const handleMenuItemClick=(subitem:any)=>{
      console.log(subitem);
-     
+      console.log('--------')
+      router.push({
+        path: subitem.url ?? '/not-found'
+      })
    }
     return {
       handleOpen,
       handleClose,
       handleMenuItemClick,
-      userMenus
+      userMenus,
+    
+    
     }
   }
 })
@@ -95,8 +111,6 @@ export default defineComponent({
   }
 
 }
-.title{
 
-}
 }
 </style>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    html,body{
+      width: 100%;
+      height: 100%;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .gradient-bg{
+      width: 350px;
+      height: 100px;
+      line-height: 100px;
+      text-align: center;
+      border: 1px solid #f9f9f9;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #f66, #f90, #3c9, #09f, #66f) left center/400% 400%;
+      animation: move 10s infinite;
+}
+@keyframes move {
+    0%,
+    100% {
+        background-position-x: left;
+    }
+    50% {
+        background-position-x: right;
+    }
+}
+  </style>
+</head>
+<body>
+  <div class="gradient-bg">iCSS</div>
+</body>
+</html>

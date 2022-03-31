@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+<body>
+  <script src="./03_debounce-3取消功能.js"></script>
+
+  <input type="text" id="inp">
+  <button>取消</button>
+  <script>
+    let ipt=document.querySelector('input');
+    let btn=document.querySelector('button');
+    let count=0;
+    const inputChange=function(e){
+      console.log('发送了网络请求:',count++,this,e);
+      return 'aaaaaaaaaaa'
+    }
+    let debounceFn=debounce(inputChange,1000);
+  ipt.oninput=debounceFn;
+  btn.onclick=function(){
+    debounceFn.cancel()
+  }
+    
+  
+  </script>
+</body>
+</html>

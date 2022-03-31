@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #conation {
+        padding-left: 200px;
+        padding-right: 150px;
+        overflow: auto;
+      }
+      #conation div {
+        float: left;
+      }
+      .center {
+        width: 100%;
+        background-color: lightcoral;
+      }
+      .left {
+        width: 200px;
+        position: relative;
+        left: -200px;
+        margin-left: -100%;
+        background-color: lightcyan;
+      }
+      .right {
+        width: 150px;
+        margin-right: -150px;
+        background-color: lightgreen;
+      }
+      .clearfix:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="conation">
+      <div class="item center">我是中间</div>
+      <div class="item left">我是左边</div>
+      <div class="item right">我是右边</div>
+    </div>
+  </body>
+</html>

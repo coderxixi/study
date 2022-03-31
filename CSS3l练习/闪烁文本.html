@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      padding:0;
+      margin: 0;
+    }
+    body,html{
+      width:100%;
+      height:100%;
+      background:#f2f2f2;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .blink-text {
+    width: 100%;
+    background-image: linear-gradient(-45deg, #f66 30%, #fff 50%, #f66 70%);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    background-blend-mode: hard-light;
+    font-weight: bold;
+    font-size: 20px;
+    color: transparent;
+    animation: shine 2s infinite;
+}
+@keyframes shine {
+    from {
+        background-position: 100%;
+    }
+    to {
+        background-position: 0;
+    }
+}
+  </style>
+</head>
+<body>
+  <p class="blink-text tac">🔥若对CSS技巧很感兴趣，请关注我喔</p>
+</body>
+</html>

@@ -26,7 +26,7 @@ export const useStore= defineStore('main', {
          LocalCache.setCache('userInfo', userInfo)
           //请求菜单路径
          let menus= await requestUserMenusByRoleId(userInfo.data.role.id);
-         this.userMenus=menus
+         this.userMenus=menus.data
          console.log('menus',menus)
          router.push('/main')
       }

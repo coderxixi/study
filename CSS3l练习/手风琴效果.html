@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      
+    }
+    body,html{
+      width: 100%;
+      height: 100%;
+      background-color: #f9f9f9;
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+     .box-content{
+        list-style: none;
+     }
+     .box-content .box-item{
+       width: 250px;
+    
+       text-align: center;
+      
+       border: 1px solid skyblue;
+     }
+     .box-content .box-item-content{
+       height: 50px;
+       line-height: 50px;
+      
+     }
+     .box-content .box-item .box-item-bt{
+       height: 0;
+       overflow: hidden;
+       transition:all .3s;
+     }
+     .box-content .box-item:hover.box-item .box-item-bt{
+       height: 150px;
+     }
+    
+    /* .box-item-content */
+  </style>
+</head>
+<body>
+  <div class="box">
+    <ul class="box-content">
+      <li class="box-item">
+        <label for="tl"></label>
+        <input type="checkbox" id="tl" hidden class="t1"/>
+        <div class="box-item-content">6666</div>
+        <div class="box-item-bt">
+          <div>666</div>
+          <div>666</div>
+          <div>666</div>
+          <div>666</div>
+          <div>666</div>
+      </div>
+      </li>
+      <li class="box-item">
+        <div class="box-item-content">6666</div>
+        <div class="box-item-bt">
+         666
+      </div>
+      </li>
+      <li class="box-item">
+        <div class="box-item-content">6666</div>
+        <div class="box-item-bt">
+        66666
+      </div>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

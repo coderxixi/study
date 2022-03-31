@@ -102,6 +102,7 @@ class HYRequest {
         .catch((err) => {
           // 将showLoading设置true, 这样不会影响下一个请求
           this.showLoading = DEAFULT_LOADING
+          alert('服务器错误')
           reject(err)
           return err
         })

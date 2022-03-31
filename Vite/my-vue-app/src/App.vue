@@ -4,8 +4,8 @@
     
 </template>
 
-<script>
-import Login from './page/Login/Login.vue'
+<script lang="ts">
+import Login from './views/Login/Login.vue'
 export default {
   components: {
   Login

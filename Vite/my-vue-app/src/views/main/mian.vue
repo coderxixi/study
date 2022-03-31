@@ -2,10 +2,12 @@
   <div class="main">
     <el-container class="main-content">
       <el-aside width="200px">
-        <nav-menu/>
+        <nav-menu :collapse="isCollapse"/>
       </el-aside>
       <el-container class="page">
-        <el-header class="page-header">Header</el-header>
+        <el-header class="page-header">
+          <nav-header/>
+        </el-header>
         <el-main class="page-content">
           main
          <router-view></router-view>
@@ -16,16 +18,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent,ref} from 'vue'
 import NavMenu from '@/components/nav-menu/src/nav-menu.vue'
+import NavHeader from '@/components/nav-header/src/nav-header.vue'
 export default defineComponent({
   components: {
-    NavMenu
+    NavMenu,
+    NavHeader
   },
   setup () {
-    
+    const isCollapse=ref(true)
 
-    return {}
+    return {isCollapse}
   }
 })
 </script>
